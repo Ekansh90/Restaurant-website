@@ -2,6 +2,7 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.0.5",
     "@tailwindcss/vite": "^4.0.5",
+    "alpinejs": "^3.14.8",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "express-ejs-layouts": "^2.5.1"
@@ -9,6 +10,7 @@
   "scripts": {
     "tw:build": "tailwindcss build -i ./assets/css/tailwind.css -o ./assets/css/main.css",
     "tw:setup": "npx @tailwindcss/cli -i ./assets/css/tailwind.css -o ./assets/css/main.css --watch",
+    "tw_ts:start": "npx tailwindcss --config tailwind.config.ts -i ./assets/css/tailwind.css -o ./assets/css/main.css --watch  ",
     "start": "node server.js"
   },
   "name": "myserver",
@@ -25,5 +27,16 @@
     "postcss": "^8.5.1",
     "tailwindcss": "^4.0.6"
   },
-  "description": ""
+  "description": "",
+  "tailwind": {
+    "content": [
+      "./assets/**/*.{html,js,jsx,ts,tsx}"
+    ],
+    "theme": {
+      "extend": {}
+    },
+    "plugins": [
+      "daisyui"
+    ]
+  }
 }
