@@ -26,10 +26,13 @@
           </div>
         </div>
       </div>
-      <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
-        <div class="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-      </div>
-    </div>
+
+      <!--
+        <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+          <div class="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+        </div>
+        -->
+    
   </div>
   
   
@@ -43,13 +46,13 @@
   <!-- TODO : MAKE CARD TITLE BOLD , ALIGN CENTRE-->
   
   <div class="bg-white">
-    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8">
       <h2 class="text-3xl font-bold tracking-tight text-gray-900 text-center">We Offer</h2>
   
       <!-- cards -->
       <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
         <div class="group relative">
-          <img src="/images/cards/home_page/appetizers.jpg" alt="Front of men&#039;s Basic Tee in black." class=" *:aspect-square w-full rounded-2xl bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
+          <img src="/images/cards/home_page/appetizers.jpg" alt="Front of men&#039;s Basic Tee in black." class="aspect-square w-full rounded-2xl bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
           <div class="mt-4 flex justify-between">
             <div>
               <h3 class="text-sm font-bold text-gray-700 text-center">
@@ -115,18 +118,300 @@
               <p class="mt-1 text-sm text-gray-500">Bring exceptional dining experience to your doorstep. Also accepting orders online.</p>
             </div>
             <!--
-              <p class="text-sm font-medium text-gray-900">$35</p>
+            <p class="text-sm font-medium text-gray-900">$35</p>
             -->
           </div>
-        </div>
-  
-
-  
-
-        
+        </div>        
         <!-- More products... -->
          
       </div>
     </div>
   </div>
 
+  <!---------------------------------------------------------------------->
+  <!-- Reservation HERO FOR LARGER SCREENS-->
+  <!-- sm:hidden = show at small screens ,
+  sm:block = show at large screens -->
+  <div class="bg-white hidden sm:block ">
+    <!--
+      <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 flex justify-evenly">
+    -->
+    <div class="mx-auto max-w-4xl px-4 py-4 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8 flex justify-evenly">
+      <!--text-->
+      <div class="basis-1/3 text-center block self-center">
+        <h4 class="mb-6 text-7xl font-bold tracking-tight text-gray-900 text-center">
+          Make a reservation
+        </h4>
+        <p>Skip the waiting line and   find a table nearby today !</p>
+        
+        <!-- mt : margin top-->
+        <div class="mt-8 flex items-center justify-center gap-x-3">
+          <a href="#" class="rounded-md px-3.5 py-2.5 text-sm font-semiboldshadow-xs hover:bg-orange-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            Reserve Your Table</a>
+        </div>
+
+      </div>
+      
+      
+      <!-- hero image-->
+      <div>
+        <img src="/images/cards/home_page/reserve.jpg" alt="Front of men&#039;s Basic Tee in black." class="aspect-square w-full rounded-2xl bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
+      </div>
+
+    </div>
+    
+    
+  </div>
+
+
+  <!-- Reservation HERO FOR smaller SCREENS : more like main hero -->
+  <div class="sm:hidden relative isolate px-6 pt-14 lg:px-8 bg-cover bg-center md:bg-cover"  style="background-image: url(/images/cards/home_page/reserve.jpg); ">
+      
+      <!-- Main Hero Container --> <!-- TODO : TRY ADDING LEFT AND RIGHT ARROW BUTTONS WHICH SHOW THE NEXT IMAGE-->
+      <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56" >
+        <div class="text-center">
+          <h1 class="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl ">Make A Reservation</h1>
+          <p class="mt-8 text-xl font-medium text-pretty text-white sm:text-xl/8">Skip the waiting line and   find a table nearby today !</p>
+          <div class="mt-8 flex items-center justify-center gap-x-6">
+            <a href="#" class="rounded-md bg-orange-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-orange-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">View Our Menus</a>
+          </div>
+        </div>
+      </div>
+
+    
+  </div>
+  
+  <!---------------------------------------------------------------------->
+  <!--LOCATIONS HERO ELEMENT-->
+  <div class="bg-white hidden sm:block ">
+    <!--
+      <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 flex justify-evenly">
+    -->
+    <div class="mx-auto max-w-4xl px-4 py-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 flex justify-evenly">
+      
+      <!-- hero image-->
+      <div>
+        <img src="/images/cards/home_page/locations.jpg" alt="Front of men&#039;s Basic Tee in black." class="aspect-square w-full rounded-2xl bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
+      </div>
+      
+      <!--text-->
+      <div class="text-center block self-center">
+        <h4 class="mb-6 text-5xl font-bold tracking-tight text-gray-900 text-center">
+          Find us near you
+        </h4>
+        <p>Browse through our locations to find your nearest branch .</p>
+        <!-- mt : margin top-->
+        <div class="mt-8 flex items-center justify-center gap-x-3">
+          <a href="#" class="rounded-md px-3.5 py-2.5 text-sm font-semiboldshadow-xs hover:bg-orange-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            Find our Locations</a>
+        </div>
+
+      </div>
+      
+      
+      
+
+    </div>
+    
+    
+  </div>
+
+
+  <!-- Locations HERO FOR smaller SCREENS : more like main hero -->
+  <div class="sm:hidden relative isolate px-6 pt-14 lg:px-8 bg-cover bg-center md:bg-cover"  style="background-image: url(/images/cards/home_page/locations.jpg); ">
+      
+      <!-- Main Hero Container --> <!-- TODO : TRY ADDING LEFT AND RIGHT ARROW BUTTONS WHICH SHOW THE NEXT IMAGE-->
+      <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56" >
+        <div class="text-center">
+          <h1 class="text-5xl font-semibold tracking-tight text-balance text-green-900 sm:text-7xl ">Find us near you</h1>
+          <p class="mt-8 text-xl font-medium text-pretty text-white sm:text-xl/8">Browse through our locations to find your nearest branch .</p>
+          <div class="mt-8 flex items-center justify-center gap-x-6">
+            <a href="#" class="rounded-md bg-orange-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-orange-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              Find our Locations
+            </a>
+          </div>
+        </div>
+      </div>
+
+    
+  </div>
+
+
+  <!---------------------------------------------------------------------->
+  <!-- ABOUT HERO FOR LARGER SCREENS-->
+  <!-- sm:hidden = show at small screens ,
+  sm:block = show at large screens -->
+  <div class="bg-white hidden sm:block ">
+    <!--
+      <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 flex justify-evenly">
+    -->
+    <div class="mx-auto max-w-4xl px-4 py-4 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8 flex justify-evenly">
+      <!--text-->
+      <div class="basis-1/3 text-center block self-center">
+        <h4 class="mb-6 text-7xl font-bold tracking-tight text-gray-900 text-center">
+          Who we are
+        </h4> 
+        <p>
+          From sizzling tandoori specialties to aromatic curries and handcrafted Indian breads, every bite tells a story of heritage and warmth. 
+          Whether you're joining us for a family meal, a festive gathering, or simply craving the comfort of home-cooked flavors, we welcome you with open hearts and a taste of India’s culinary soul.
+        </p>
+        
+        <!-- mt : margin top-->
+        <div class="mt-8 flex items-center justify-center gap-x-3">
+          <a href="#" class="rounded-md px-3.5 py-2.5 text-sm font-semiboldshadow-xs hover:bg-orange-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            Discover Our Menu
+          </a>
+        </div>
+        
+
+        
+      </div>
+      
+      <!-- hero image-->
+      <div>
+        <img src="/images/cards/home_page/about_us.jpg" alt="Front of men&#039;s Basic Tee in black." class="aspect-square w-full rounded-2xl bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
+      </div>
+
+    </div>
+
+    
+  </div>
+
+
+  <!-- ABOUT HERO FOR smaller SCREENS : more like main hero -->
+  <div class="sm:hidden relative isolate px-6 pt-14 lg:px-8 bg-cover bg-center md:bg-cover"  style="background-image: url(/images/cards/home_page/about_us.jpg); ">
+      
+    <!-- Main Hero Container --> <!-- TODO : TRY ADDING LEFT AND RIGHT ARROW BUTTONS WHICH SHOW THE NEXT IMAGE-->
+      <div class="mx-auto max-w-2xl py-32 px-8 sm:py-48 lg:py-56" >
+        
+        <div class="text-center rounded-3xl px-6 py-8 bg-gray-800 ">
+          <h1 class="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl ">Who we are</h1>
+          <p class="mt-8 text-xl font-small text-pretty text-white sm:text-xl/8">
+            From sizzling tandoori specialties to aromatic curries and handcrafted Indian breads, every bite tells a story of heritage and warmth. 
+            Whether you're joining us for a family meal, a festive gathering, or simply craving the comfort of home-cooked flavors, we welcome you with open hearts and a taste of India’s culinary soul.
+          </p>
+          <div class="mt-8 flex items-center justify-center gap-x-6">
+            <a href="#" class="rounded-md bg-orange-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-orange-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              Discover Our Menu
+            </a>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+
+    
+  <!---------------------------------------------------------------------->
+  <!-- GALLERY-->
+  <div class="bg-white hidden sm:block group relative py-8 ">
+    
+    <div class="px-50 flex justify-between">
+      <div>
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 text-center">@TheIndianKitchen</h2>
+      </div>
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2.163C15.204 2.163 15.584 2.175 16.85 2.233C20.102 2.381 21.621 3.924 21.769 7.152C21.827 8.417 21.838 8.797 21.838 12.001C21.838 15.206 21.826 15.585 21.769 16.85C21.62 20.075 20.105 21.621 16.85 21.769C15.584 21.827 15.206 21.839 12 21.839C8.796 21.839 8.416 21.827 7.151 21.769C3.891 21.62 2.38 20.07 2.232 16.849C2.174 15.584 2.162 15.205 2.162 12C2.162 8.796 2.175 8.417 2.232 7.151C2.381 3.924 3.896 2.38 7.151 2.232C8.417 2.175 8.796 2.163 12 2.163ZM12 0C8.741 0 8.333 0.014 7.053 0.072C2.695 0.272 0.273 2.69 0.073 7.052C0.014 8.333 0 8.741 0 12C0 15.259 0.014 15.668 0.072 16.948C0.272 21.306 2.69 23.728 7.052 23.928C8.333 23.986 8.741 24 12 24C15.259 24 15.668 23.986 16.948 23.928C21.302 23.728 23.73 21.31 23.927 16.948C23.986 15.668 24 15.259 24 12C24 8.741 23.986 8.333 23.928 7.053C23.732 2.699 21.311 0.273 16.949 0.073C15.668 0.014 15.259 0 12 0ZM12 5.838C8.597 5.838 5.838 8.597 5.838 12C5.838 15.403 8.597 18.163 12 18.163C15.403 18.163 18.162 15.404 18.162 12C18.162 8.597 15.403 5.838 12 5.838ZM12 16C9.791 16 8 14.21 8 12C8 9.791 9.791 8 12 8C14.209 8 16 9.791 16 12C16 14.21 14.209 16 12 16ZM18.406 4.155C17.61 4.155 16.965 4.8 16.965 5.595C16.965 6.39 17.61 7.035 18.406 7.035C19.201 7.035 19.845 6.39 19.845 5.595C19.845 4.8 19.201 4.155 18.406 4.155Z" fill="#1E1E1E"/>
+        </svg>
+      </div>
+      
+    </div>
+    
+
+    <div class="mx-auto max-w-6xl px-4 py-8 flex gap-4">
+      <!-- Left: Large Image -->
+      <div class="w-1/2 aspect-square  rounded-2xl bg-gray-200 object-cover group-hover:opacity-75  lg:h-93">
+        <img src="/images/cards/home_page/gallery/gl1.jpg" 
+        alt="Large hero image" 
+        class="w-full h-full object-cover rounded-lg">
+      </div>
+      
+      <!-- Right: Two sections -->
+      <div class="w-1/2 flex flex-col gap-4">
+        
+        <!-- Top Row (2 Images) -->
+        <div class="flex gap-4">
+          <img src="/images/cards/home_page/gallery/gl2.jpg" 
+          alt="Gallery image 1" 
+          class="w-1/2 h-48 object-cover rounded-lg">
+          <img src="/images/cards/home_page/gallery/gl3.jpg" 
+          alt="Gallery image 2" 
+          class="w-1/2 h-48 object-cover rounded-lg">
+        </div>
+        
+        <!-- Bottom Row (3 Images) -->
+        <div class="flex gap-3">
+          <img src="/images/cards/home_page/gallery/gl4_croppedHome.jpg" 
+          alt="Gallery image 3" 
+          class="w-1/3 h-40 object-cover rounded-lg">
+          <img src="/images/cards/home_page/gallery/gl5.jpg" 
+          alt="Gallery image 4" 
+          class="w-1/3 h-40 object-cover rounded-lg">
+          <img src="/images/cards/home_page/gallery/gl6.jpg" 
+          alt="Gallery image 5" 
+          class="w-1/3 h-40 object-cover rounded-lg">
+        </div>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+
+<!-- GALLERY for smaller view -->
+<!-- GALLERY for smaller view -->
+<div class="bg-white sm:hidden px-4 py-8">
+  
+  
+  <!-- Large Image (Full Width) -->
+  <div class="w-full mb-4">
+    <div class="flex justify-between">
+      <div>
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 text-left">@TheIndianKitchen</h2>
+      </div>
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2.163C15.204 2.163 15.584 2.175 16.85 2.233C20.102 2.381 21.621 3.924 21.769 7.152C21.827 8.417 21.838 8.797 21.838 12.001C21.838 15.206 21.826 15.585 21.769 16.85C21.62 20.075 20.105 21.621 16.85 21.769C15.584 21.827 15.206 21.839 12 21.839C8.796 21.839 8.416 21.827 7.151 21.769C3.891 21.62 2.38 20.07 2.232 16.849C2.174 15.584 2.162 15.205 2.162 12C2.162 8.796 2.175 8.417 2.232 7.151C2.381 3.924 3.896 2.38 7.151 2.232C8.417 2.175 8.796 2.163 12 2.163ZM12 0C8.741 0 8.333 0.014 7.053 0.072C2.695 0.272 0.273 2.69 0.073 7.052C0.014 8.333 0 8.741 0 12C0 15.259 0.014 15.668 0.072 16.948C0.272 21.306 2.69 23.728 7.052 23.928C8.333 23.986 8.741 24 12 24C15.259 24 15.668 23.986 16.948 23.928C21.302 23.728 23.73 21.31 23.927 16.948C23.986 15.668 24 15.259 24 12C24 8.741 23.986 8.333 23.928 7.053C23.732 2.699 21.311 0.273 16.949 0.073C15.668 0.014 15.259 0 12 0ZM12 5.838C8.597 5.838 5.838 8.597 5.838 12C5.838 15.403 8.597 18.163 12 18.163C15.403 18.163 18.162 15.404 18.162 12C18.162 8.597 15.403 5.838 12 5.838ZM12 16C9.791 16 8 14.21 8 12C8 9.791 9.791 8 12 8C14.209 8 16 9.791 16 12C16 14.21 14.209 16 12 16ZM18.406 4.155C17.61 4.155 16.965 4.8 16.965 5.595C16.965 6.39 17.61 7.035 18.406 7.035C19.201 7.035 19.845 6.39 19.845 5.595C19.845 4.8 19.201 4.155 18.406 4.155Z" fill="#1E1E1E"/>
+        </svg>
+      </div> 
+    </div>
+    <img src="/images/cards/home_page/gallery/gl3.jpg" 
+         alt="Large hero image" 
+         class="w-full h-auto object-cover rounded-lg">
+  </div>
+
+  <!-- Right: Two sections (stacked) -->
+  <div class="flex flex-col gap-4 ">  <!-- Added px-2 for side spacing -->
+    
+    <!-- Top Row (2 Images) -->
+    <div class="flex justify-center gap-4">
+      <img src="/images/cards/home_page/gallery/gl2.jpg" 
+      alt="Gallery image 1" 
+           class="w-[48%] h-48 object-cover rounded-lg">
+           <img src="/images/cards/home_page/gallery/gl1.jpg" 
+           alt="Gallery image 2" 
+           class="w-[48%] h-48 object-cover rounded-lg">
+    </div>
+
+    <!-- Bottom Row (3 Images) -->
+    <div class="flex justify-evenly gap-3">
+      <img src="/images/cards/home_page/gallery/gl4.jpg" 
+      alt="Gallery image 3" 
+           class="w-[30%] h-40 object-cover rounded-lg">
+           <img src="/images/cards/home_page/gallery/gl5.jpg" 
+           alt="Gallery image 4" 
+           class="w-[30%] h-40 object-cover rounded-lg">
+           <img src="/images/cards/home_page/gallery/gl6.jpg" 
+           alt="Gallery image 5" 
+           class="w-[30%] h-40 object-cover rounded-lg">
+    </div>
+
+  </div>
+
+</div>
+
+
+
+  
+  <!---------------------------------------------------------------------->
