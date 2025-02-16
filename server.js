@@ -1,14 +1,18 @@
 const path = require("path");
 const express = require("express");
 const app = express();
-const expressLayouts = require('express-ejs-layouts')
+const expressLayouts = require('express-ejs-layouts');
 
+
+// server.js - needs to import module (by require) and store it in a local variable
+const menuItemsUtil = require('./modules/menu-util');
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////// app.use()
 // make assets folder local
 app.use(express.static(path.join(__dirname, '/assets/')));
+
 
 // SET UP EJS
 app.set('view engine','ejs');
@@ -28,6 +32,11 @@ app.get('/', (req,res) => {
     res.render("home");
 });
 
+app.get('/menus',(req,res) => {
+    res.render("menus",{
+        menuItemsArray : menuItemsUtil.getItemByCategory( menuItemsUtil.getAllItems())
+    });
+});
 // This use() will not allow requests to go beyond it . 
 // So we place it at the end of the file, after the other routes.
 // This function will catch all other requests that don't match any other route handlers declared before it.

@@ -1,0 +1,18 @@
+            <!--more items-->
+            <% if( menuItemsArray.length > 0 ) { %>
+
+                <% menuItemsArray.forEach( arrOfObjects  => { %>
+
+                    <% arrOfObjects.filteredArray.forEach( singleObject => { %>
+                        
+                        <%# console.log(singleObject);%>
+                        <%- include("partials/menu-itemCard",singleObject)%>
+
+                    <% });%>
+
+                <% }); %>
+
+
+            <% } else { %>
+                <p>Nothing To Show</p>
+            <% } %>

@@ -1,0 +1,114 @@
+
+<div class="bg-white mt-8" x-data="{ selectedCategory: 'all' }">
+    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8">
+      <h2 class="text-7xl tracking-tight text-gray-900 text-center">Our Menus</h2>
+      <div class="items-center mt-6 mb-8">
+        <!-- Center the text inside the p element and limit its width -->
+        <p class="text-center w-1/2 mx-auto">We consider all the drivers of change gives you the components you need to change to create a truly happens.</p>
+      </div>
+
+      <!-- buttons bar -->
+       <!--
+        <div class="flex justify-center gap-10">
+            <div class="flex items-center justify-center gap-x-12">
+            <a href="#" class="text-center rounded-full w-32 bg-orange-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-orange-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                All
+            </a>
+        </div>
+        <div class="flex items-center justify-center gap-x-6">
+            <a href="#" class="text-center rounded-full w-32 bg-orange-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-orange-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                Appetizers
+            </a>
+        </div>
+        <div class="flex items-center justify-center gap-x-6">
+            <a href="#" class="text-center rounded-full w-32 bg-orange-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-orange-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                Main Course
+            </a>
+        </div>
+        <div class="flex items-center justify-center gap-x-6">
+            <a href="#" class="text-center rounded-full w-32 bg-orange-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-orange-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                Desserts
+            </a>
+        </div>
+        -->
+        
+        <div class="flex justify-center gap-10 mb-20">
+            <label class="cursor-pointer">
+                <input type="radio" name="menu" value="all" x-model="selectedCategory" class="peer hidden">
+                <div class="text-center rounded-full w-32 px-3.5 py-2.5 text-sm font-semibold shadow-xs peer-checked:bg-orange-700 peer-checked:text-white bg-white text-black border border-orange-700 hover:bg-orange-400 hover:text-white">
+                    All
+                </div>
+            </label>
+        
+            <label class="cursor-pointer">
+                <input type="radio" name="menu" value="appetizer" x-model="selectedCategory" class="peer hidden">
+                <div class="text-center rounded-full w-32 px-3.5 py-2.5 text-sm font-semibold shadow-xs peer-checked:bg-orange-700 peer-checked:text-white bg-white text-black border border-orange-700 hover:bg-orange-400 hover:text-white">
+                    Appetizers
+                </div>
+            </label>
+        
+            <label class="cursor-pointer">
+                <input type="radio" name="menu" value="main-course" x-model="selectedCategory" class="peer hidden">
+                <div class="text-center rounded-full w-32 px-3.5 py-2.5 text-sm font-semibold shadow-xs peer-checked:bg-orange-700 peer-checked:text-white bg-white text-black border border-orange-700 hover:bg-orange-400 hover:text-white">
+                    Main Course
+                </div>
+            </label>
+        
+            <label class="cursor-pointer">
+                <input type="radio" name="menu" value="dessert" x-model="selectedCategory" class="peer hidden">
+                <div class="text-center rounded-full w-32 px-3.5 py-2.5 text-sm font-semibold shadow-xs peer-checked:bg-orange-700 peer-checked:text-white bg-white text-black border border-orange-700 hover:bg-orange-400 hover:text-white">
+                    Desserts
+                </div>
+            </label>
+        </div>
+        
+
+        <!--
+            <div class="text-center">All</div>
+            <div class="text-center">Appetizers</div>
+            <div class="text-center">Main Course</div>
+            <div class="text-center">Desserts</div>
+        -->
+
+      
+  
+        
+        <!-- cards -->
+        <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 ">
+
+            
+
+                        <!--more items-->
+            <% if( menuItemsArray.length > 0 ) { %>
+
+                <% menuItemsArray.forEach( arrOfObjects  => { %>
+
+                    <% arrOfObjects.filteredArray.forEach( singleObject => { %>
+                        
+                        <%# console.log(singleObject);%>
+                        <div x-show="selectedCategory === 'all' || selectedCategory === '<%= singleObject.category %>'">
+                            <%- include("partials/menu-itemCard",singleObject)%>
+                        </div>
+
+                    <% });%>
+
+                <% }); %>
+            
+
+
+
+            <% } else { %>
+                <p>Nothing To Show</p>
+            <% } %>
+                
+    
+
+            
+            
+
+            
+        </div>
+         
+    </div>
+  
+</div>

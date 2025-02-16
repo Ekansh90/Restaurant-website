@@ -1,0 +1,26 @@
+<!-- todo : fix card layout , set text container max something as causing overflow when lot's of text-->
+<div class="relative rounded-lg border-2 border-[#DBDFD0] ">
+  <img src="<%-imageURL %>" alt="Front of men&#039;s Basic Tee in black." class="aspect-square w-full  bg-gray-200 object-cover rounded-t-lg lg:aspect-auto lg:h-50">
+  <div class="mt-4 flex justify-between">
+    <div>
+      <h3 class="text-lg font-bold text-gray-700 text-center">
+        <%- title %>
+      </h3>
+      <p class="text-center mt-1 text-sm text-gray-500"><%- description %></p>
+      
+      <!-- Add to Cart button-->
+      <div class="mt-4 mb-4 flex items-center justify-center gap-x-6">
+        <a href="#" class="group rounded-4xl bg-orange-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-orange-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          <span class="group-hover:hidden"><%- price %></span>
+          <!-- if statement to only show add to cart if user logged in-->
+          <span class="hidden group-hover:inline">Add to Cart</span>
+        </a>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+    
+    
+              
