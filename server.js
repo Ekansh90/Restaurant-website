@@ -37,6 +37,41 @@ app.get('/menus',(req,res) => {
         menuItemsArray : menuItemsUtil.getItemByCategory( menuItemsUtil.getAllItems())
     });
 });
+
+app.get('/group-dining',(req,res) => {
+    res.render("group-dining");
+});
+
+app.get('/log-in', (req,res) => {
+    res.render("log-in") ;
+});
+
+app.get('/sign-up', (req,res) => {
+    res.render("sign-up") ;
+});
+
+app.get('/success', (req,res) => {
+    res.render("success") ;
+});
+
+app.get('/blocked', (req,res) => {
+    res.render("blocked") ;
+});
+
+
+
+// todo
+app.get('/addItem', (req,res) => {
+    res.render("addItem") ;
+});
+
+app.get('/reserve', (req,res) => {
+    res.render("reservation") ;
+});
+
+
+
+
 // This use() will not allow requests to go beyond it . 
 // So we place it at the end of the file, after the other routes.
 // This function will catch all other requests that don't match any other route handlers declared before it.

@@ -1,0 +1,79 @@
+<div class="bg-white mt-8">
+    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8">
+        
+        <h2 class="text-7xl tracking-tight text-gray-900 text-center">Book A Table</h2>
+        <div class="items-center mt-6 mb-8">
+            <p class="text-center w-1/2 mx-auto">Plan your perfect dining experience by reserving a table with us. 
+                Whether it's an intimate dinner, a family gathering, or a large group event, we make the process seamless. 
+                Select your date, time, and party size, and let us take care of the rest.</p>
+        </div>
+
+        <!-- integrate google maps api, selecting a location pops up on the map-->
+        <div>
+            <!--div for form-->
+
+            <!--div for map-->
+            <div x-data="{ lat: null, lng: null, locationFetched: false }">
+
+                <h2>Find My Location</h2>
+                
+                <!-- Button to Get Location -->
+                <button @click="getLocation" class="px-4 py-2 bg-blue-500 text-white rounded">
+                    Get My Location
+                </button>
+        
+                <!-- Display Location (Latitude & Longitude) -->
+                <p x-show="locationFetched" class="mt-4">
+                    Latitude: <span x-text="lat"></span> | Longitude: <span x-text="lng"></span>
+                </p>
+        
+                <!-- Google Maps Container -->
+                <div id="map" x-show="locationFetched"></div>
+                
+            </div>
+        
+            <script>
+                function initMap() {
+                    window.getLocation = function () {
+                        if (navigator.geolocation) {
+                            navigator.geolocation.getCurrentPosition(position => {
+                                let lat = position.coords.latitude;
+                                let lng = position.coords.longitude;
+                                
+                                // Update Alpine.js state
+                                document.querySelector('[x-data]').__x.$data.lat = lat;
+                                document.querySelector('[x-data]').__x.$data.lng = lng;
+                                document.querySelector('[x-data]').__x.$data.locationFetched = true;
+                                
+                                // Load map
+                                let map = new google.maps.Map(document.getElementById("map"), {
+                                    center: { lat: lat, lng: lng },
+                                    zoom: 15
+                                });
+        
+                                // Add marker
+                                new google.maps.Marker({
+                                    position: { lat: lat, lng: lng },
+                                    map: map,
+                                    title: "Your Location"
+                                });
+        
+                            }, error => {
+                                console.error("Geolocation error:", error);
+                                alert("Unable to retrieve location.");
+                            });
+                        } else {
+                            alert("Geolocation is not supported by this browser.");
+                        }
+                    };
+                }
+            </script>
+
+        </div>
+        
+
+
+
+
+    </div>
+</div>
