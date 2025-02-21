@@ -1,3 +1,7 @@
+<!-- TODO :
+1. FIX CSS FOR MOBILE 
+2. ADD GOOGLE API INTEGRATION FOR MAP
+-->>
 <div class="bg-white mt-8">
     <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8">
         
@@ -8,72 +12,70 @@
                 Select your date, time, and party size, and let us take care of the rest.</p>
         </div>
 
-        <!-- integrate google maps api, selecting a location pops up on the map-->
-        <div>
-            <!--div for form-->
+    </div>
+</div>
 
-            <!--div for map-->
-            <div x-data="{ lat: null, lng: null, locationFetched: false }">
+<!-- integrate google maps api, selecting a location pops up on the map-->
+<div class="relative isolate md:px-6 pt-14 lg:px-8 justify-center bg-cover bg-center md:bg-cover flex items-center  min-h-screen" style="background-image: url(/images/hero_sections/reserve_hero.jpg);">
 
-                <h2>Find My Location</h2>
-                
-                <!-- Button to Get Location -->
-                <button @click="getLocation" class="px-4 py-2 bg-blue-500 text-white rounded">
-                    Get My Location
-                </button>
-        
-                <!-- Display Location (Latitude & Longitude) -->
-                <p x-show="locationFetched" class="mt-4">
-                    Latitude: <span x-text="lat"></span> | Longitude: <span x-text="lng"></span>
-                </p>
-        
-                <!-- Google Maps Container -->
-                <div id="map" x-show="locationFetched"></div>
-                
+    <!-- div for form -->
+    <form class="w-1/2 bg-white rounded-4xl shadow-lg p-8 mb-10 py-15">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-10  ">
+
+            <!-- Nature of Event -->
+            <div class="md:col-span-2">
+                <label class="block text-sm font-medium">Location <span class="text-red-500">*</span></label>
+                <select required class="w-full mt-1 p-2 border border-gray-400 rounded-3xl px-2 text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="charity">12 Emberly Drive</option>
+                    <option value="religious">65 Boulevard Street</option>
+                    <option value="work_event">Strong Avenue West</option>
+
+                </select>
+            </div>
+
+            <!-- Event Date -->
+            <div>
+                <label class="block text-sm font-medium">Event Date <span class="text-red-500">*</span></label>
+                <input type="date" required class="w-full mt-1 p-2 px-3   border border-gray-400  rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
             </div>
         
-            <script>
-                function initMap() {
-                    window.getLocation = function () {
-                        if (navigator.geolocation) {
-                            navigator.geolocation.getCurrentPosition(position => {
-                                let lat = position.coords.latitude;
-                                let lng = position.coords.longitude;
-                                
-                                // Update Alpine.js state
-                                document.querySelector('[x-data]').__x.$data.lat = lat;
-                                document.querySelector('[x-data]').__x.$data.lng = lng;
-                                document.querySelector('[x-data]').__x.$data.locationFetched = true;
-                                
-                                // Load map
-                                let map = new google.maps.Map(document.getElementById("map"), {
-                                    center: { lat: lat, lng: lng },
-                                    zoom: 15
-                                });
-        
-                                // Add marker
-                                new google.maps.Marker({
-                                    position: { lat: lat, lng: lng },
-                                    map: map,
-                                    title: "Your Location"
-                                });
-        
-                            }, error => {
-                                console.error("Geolocation error:", error);
-                                alert("Unable to retrieve location.");
-                            });
-                        } else {
-                            alert("Geolocation is not supported by this browser.");
-                        }
-                    };
-                }
-            </script>
+            <!-- Event Time -->
+            <div>
+                <label class="block text-sm font-medium">Event Time <span class="text-red-500">*</span></label>
+                <input type="time" required class="w-full mt-1 p-2 px-3  border border-gray-400  rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+            </div>
 
+            <!-- Full Name -->
+            <div>
+                <label class="block text-sm font-medium">Full Name <span class="text-red-500">*</span></label>
+                <input type="text" required class="w-full mt-1 p-2   border border-gray-400  rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+            </div>
+            
+            <!-- Number of Guests -->
+            <div class="block text-sm font-medium">
+                <label class="block text-sm font-medium">Number of Guests <span class="text-red-500">*</span></label>
+                <input type="number" required min="1" class="w-full mt-1 p-2   border border-gray-400  rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+            </div>
+            
+            <!-- Email -->
+            <div>
+                <label class="block text-sm font-medium">Email <span class="text-red-500">*</span></label>
+                <input type="email" required class="w-full mt-1 p-2   border border-gray-400  rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+            </div>
+
+            <!-- Phone -->
+            <div>
+                <label class="block text-sm font-medium">Phone <span class="text-red-500">*</span></label>
+                <input type="tel" required class="w-full mt-1 p-2  border border-gray-400  rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+            </div>
         </div>
-        
 
-
-
-
-    </div>
+        <!-- Submit Button -->
+        <div class="mt-10 text-center">
+            <button type="submit" class="md:col-span-2 bg-orange-500 hover:bg-orange-600 text-white py-2 px-6  rounded-3xl text-lg font-semibold shadow-lg transition duration-200">
+                Submit Booking Request
+            </button>
+        </div>
+    </form>
 </div>
