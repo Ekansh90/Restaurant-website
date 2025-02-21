@@ -5,7 +5,8 @@
     "alpinejs": "^3.14.8",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
-    "express-ejs-layouts": "^2.5.1"
+    "express-ejs-layouts": "^2.5.1",
+    "locomotive-scroll": "^4.1.4"
   },
   "scripts": {
     "tw:build": "tailwindcss build -i ./assets/css/tailwind.css -o ./assets/css/main.css",

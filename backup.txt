@@ -16,3 +16,49 @@
             <% } else { %>
                 <p>Nothing To Show</p>
             <% } %>
+
+
+
+            ## form 
+                <!-- Log in form on the right -->
+    <div class="w-1/2 text-black p-6   ">
+        <h2 class="text-2xl font-semibold mb-4 text-center mt-10">LOG IN</h2>
+        <form action="#" method="POST" class="border-2 px-6 py-10 rounded-3xl ml-30 mr-30">
+            
+
+            <!-- Email -->
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium py-2">Email</label>
+                <input type="email" id="email" name="email" required class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+            </div>
+
+            <!-- Password -->
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium py-2">Password</label>
+                <input type="password" id="password" name="password" required class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+            </div>
+
+            <!-- Radio Buttons: Customer or Restaurant Employee -->
+            <div class="mb-4">
+                <label class="block">
+                    <input type="radio" name="userType" value="customer" class="mr-2">
+                    Customer
+                </label>
+                <label class="block mt-2">
+                    <input type="radio" name="userType" value="restaurant-employee" class="mr-2">
+                    Restaurant Employee
+                </label>
+            </div>
+
+            
+            <!-- Log In button -->
+            <button type="submit" class="w-full py-2 bg-orange-500 text-white rounded-md font-semibold hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-400">Log In</button>
+            
+            <!-- Already have an account -->
+            <p class="mt-4 text-center text-LG font-bold">
+                <a href="#" class="text-orange-500 hover:underline">Forgot Your Password ?</a>
+            </p>
+        </form>
+
+        
+    </div>

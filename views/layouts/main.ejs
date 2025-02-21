@@ -7,10 +7,28 @@
     <title>Basic Express Project</title>
     <link rel="stylesheet" href="/css/main.css"> <!-- assets does not need to be used as ASSETS IS UNDER THE ROOT FOLDER , / - MEANS ROOT FOLDER -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- change this , as smoother scroll has led to slower performance of rendering images on cards-->
+    <!--
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.1/dist/locomotive-scroll.css">
+        <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.1/dist/locomotive-scroll.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const scroll = new LocomotiveScroll({
+                    el: document.documentElement, // Targets the whole page
+                    smooth: true ,
+                    smoothMobile: false ,// Disables it for mobile 
+                    multiplier: 0.8, // Slows down the scroll effect a bit
+                    reloadOnContextChange: true
+                });
+            });
+        </script>
+    -->
+    
 </head>
 
 
-<body>
+<body data-scroll-container>
     
     <!-- NAVBAR -->
     <%- include('../partials/navbar') %>
