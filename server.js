@@ -69,6 +69,9 @@ app.use(express.static(__dirname + '/public'));
 
 require('pg'); // explicitly require the "pg" module
 const Sequelize = require('sequelize');
+const serverless = require("serverless-http"); // Required for Vercel
+
+app.use("/api", router); // Prefix all routes with `/api`
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////// Add your routes here
@@ -161,3 +164,7 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING)
     .catch( err => {
         console.log("Unable connect to MongoDB database : ERROR -> " + err);
     })
+
+
+    module.exports = app;
+    module.exports.handler = serverless(app); // Required for Vercel
