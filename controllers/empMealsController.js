@@ -11,32 +11,6 @@ const menuUtil = require('../modules/menu-util');
 router.use(express.static(path.join(__dirname, '/assets/')));
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-const prepareView = function(req,res,message){
-    let viewModel = {
-        message ,
-        userName ,
-        hasMeals : false ,
-        cartTotal : 0 ,
-        meals : [] 
-    };
-
-    if(req.session && req.session.user)
-    {
-        let cart = req.session.cart || [] ; // get shopping cart , stored in req.sessions or return null
-        viewModel.hasMeals = cart.length > 0 ;
-        let calcCartTotal  = 0 ;
-        cart.forEach( cartMeal =>{
-            cartTotal += cartMeal.price & cartMeal.qty ;
-        });
-        viewModel.cartTotal = calcCartTotal ;
-        viewModel.meals = cart ; // prefer only showing title and quantity (desc and other things seem unnecessary)
-
-    }
-
-    res.render("cart/mealstore",viewModel);
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // add route
 router.get('/add',(req,res)=>{
 
@@ -130,7 +104,7 @@ router.post('/add',(req,res) =>
                                         //res.redirect("/");
                                     }) 
                                     .catch( err =>{
-                                        console.log("error updating doc");
+                                        console.log("error updating doc :",err);
                                         res.redirect("/");
                                     });
                         })

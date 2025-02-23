@@ -13,14 +13,15 @@
         
         <% if(typeof user == "undefined"){ %> 
           <a href="#" class="group rounded-4xl bg-orange-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-orange-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-            <span class="group-hover:hidden">$<%- price %></span>
+            <span class="group-hover:hidden">Price : $<%- price %></span>
+            <span class="hidden group-hover:inline">Price : $<%- price %></span>
           </a>
         
           <% } else { %> 
 
             <!-- Add to cart hover option -->
             <% if( userType == "customer"){ %> 
-              <a href="#" class="group rounded-4xl bg-orange-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-orange-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              <a href="/cart/add/<%= _id %>" class="group rounded-4xl bg-orange-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-orange-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 <span class="group-hover:hidden">Price : $<%- price %></span>
                 
                 <!-- if statement to only show add to cart if user logged in-->

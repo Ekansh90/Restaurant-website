@@ -28,7 +28,7 @@ router.get('/menus', (req, res) => {
 
 
 router.post('/menus', (req, res) => {
-    console.log(req.body.category);
+    
     let selectedCategory = req.body.category || "all"; // Use category from form
 
     mealModel.find()

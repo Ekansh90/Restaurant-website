@@ -84,6 +84,9 @@ app.use('/load-data/',loadDataController);
 
 const empMealsController = require('./controllers/empMealsController');
 app.use('/meals/',empMealsController);
+
+const userCartController = require('./controllers/userCartController');
+app.use('/cart/',userCartController) ;
 /*
 app.get('/menus',(req,res) => {
     res.render("menus",{

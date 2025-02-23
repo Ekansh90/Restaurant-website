@@ -1,0 +1,102 @@
+<div class="bg-gray-100 py-8 min-h-screen">
+    <div class="container mx-auto px-4">
+        <h1 class="text-2xl font-semibold mb-4 text-center">
+            Shopping Cart
+            <div class="mt-2">
+                <% if (typeof errors != "undefined") { %>
+                    ==> <%= errors %>
+                <% } %>
+            </div>
+        </h1>
+
+        <div class="flex flex-col md:flex-row gap-4">
+            <!-- 🛒 Cart Items Section -->
+            <div class="md:w-3/4">
+                <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+                    
+                    <!-- Scrollable Table Wrapper -->
+                    <div class="max-h-[calc(100vh-300px)] overflow-auto">
+                        <table class="w-full">
+                            <thead class="sticky top-0 bg-white shadow-md">
+                                <tr>
+                                    <th class="text-left font-semibold py-2 px-4">Product</th>
+                                    <th class="text-left font-semibold py-2 px-4">Price</th>
+                                    <th class="text-left font-semibold py-2 px-4">Quantity</th>
+                                    <th class="text-left font-semibold py-2 px-4">Total</th>
+                                    <th class="text-left font-semibold py-2 px-4">Clear</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% meals.forEach(cartMealObj => { %>
+                                <tr class="border-b">
+                                    <td class="py-4 px-4">
+                                        <div class="flex items-center">
+                                            <img class="h-16 w-24 mr-4 rounded-lg" src="<%= cartMealObj.meal.imageURL %>" alt="Product image">
+                                            <span class="font-semibold text-xl px-4"><%= cartMealObj.meal.title %></span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-4 text-left">$<%= cartMealObj.meal.price %></td>
+                                    <td class="py-4 px-4">
+                                        <div class="flex items-center">
+                                            <a href="/cart/add/<%= cartMealObj.meal._id %>">
+                                                <button class="w-full px-4 py-2 bg-green-300 text-white rounded-full font-semibold hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                                                    +
+                                                </button>
+                                            </a>
+                                            <span class="text-center px-3 w-8"><%= cartMealObj.qty %></span>
+                                            <a href="/cart/remove/<%= cartMealObj.meal._id %>">
+                                                <button class="w-full px-4 py-2 bg-orange-400 text-white rounded-full font-semibold hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                                                    -
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-4">$<%= cartMealObj.netSingleMealPrice.toFixed(2) %></td>
+                                    <td class="py-4 px-4">
+                                        <a href="/cart/clear/<%= cartMealObj.meal._id %>">
+                                            <button class="w-full px-4 py-2 bg-red-400 text-white rounded-md font-semibold hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                                                x
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 🛍️ Order Summary Section -->
+            <div class="md:w-1/4">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-lg font-semibold mb-4">Order Summary</h2>
+                    <hr class="my-2">
+                    <div class="flex justify-between mb-2 mt-4">
+                        <span>Subtotal</span>
+                        <span>$<%= cartTotal.toFixed(2) %></span>
+                    </div>
+                    <div class="flex justify-between mb-2">
+                        <span>Taxes</span>
+                        <span>$<%= taxes.toFixed(2) %></span>
+                    </div>
+                    <div class="flex justify-between mb-4">
+                        <span>Shipping</span>
+                        <span>$0.00</span>
+                    </div>
+                    <hr class="my-2">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-semibold">Total</span>
+                        <span class="font-semibold">$<%= netTotal.toFixed(2) %></span>
+                    </div>
+                    <a href="/cart/checkout/">
+                        <button class="w-full py-2 bg-orange-500 text-white rounded-md font-semibold hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                            Checkout
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
