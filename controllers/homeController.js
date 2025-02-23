@@ -49,4 +49,20 @@ router.post('/menus', (req, res) => {
 });
 
 */
+/////////////////////////////////////////////////////
+router.get('/reserve',(req,res) => {
+    res.render("general/reservation") ;
+});
+
+router.get('/reservationConfirmation',(req,res) => {
+    res.render("general/reservation") ;
+});
+
+
+/////////////////////////////////////////////////////
+router.get('/group-dining',(req,res) => {
+    res.render("general/group-dining");
+});
+
+
 module.exports = router ;

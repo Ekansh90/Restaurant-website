@@ -96,10 +96,6 @@ app.get('/menus',(req,res) => {
 });
 */
 
-app.get('/group-dining',(req,res) => {
-    res.render("group-dining");
-});
-
 
 
 
@@ -113,10 +109,6 @@ app.get('/blocked', (req,res) => {
 
 
 
-
-app.get('/reserve', (req,res) => {
-    res.render("reservation") ;
-});
 
 
 
