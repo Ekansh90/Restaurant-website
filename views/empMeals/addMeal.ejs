@@ -1,0 +1,76 @@
+<div class="relative isolate px-6  lg:px-8 bg-cover bg-center md:bg-cover"  style="background-image: url(/images/hero_sections/success_hero.jpg); ">
+    <!-- Image on the left -->
+  
+
+    <!-- Sign-up form on the right -->
+    <div class="w-1/2 text-black p-6   ">
+        <h2 class="text-2xl font-semibold mb-4 text-center text-white mt-10">Add A New Menu Item</h2>
+        <!-- enctype required to obtain uploaded image through req.files.imageurl-->
+        <form action="/meals/add" method="post" enctype="multipart/form-data" class="border-2 px-6 py-10 rounded-3xl ml-30 mr-30 bg-white mb-10">
+
+            <!-- ERRORS THAT WE STORED IN ERRORS ARRAY-->
+            <div class="mt-2 mb-2">
+                <% if (typeof errors !== "undefined" && errors.length > 0) { %>
+                    <% errors.forEach(err => { %>
+                        <p style="color:red;"><%= err %></p>
+                    <% }) %>
+                <% } %>
+            </div>
+                
+            <!-- title -->
+            <div class="mb-4">
+                <label for="title" class="block text-sm font-medium py-2">Title</label>
+                <input type="text" id="title" name="title" required  value="<%= values.title%>" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+            </div>
+
+            <!-- description -->
+            <div class="mb-4">
+                <label for="description" class="block text-sm font-medium py-2">Description</label>
+                <input type="text" id="description" name="description" required  value="<%= values.description%>" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+            </div>
+
+            <!-- price -->
+            <div class="mb-4">
+                <label for="price" class="block text-sm font-medium py-2">Price</label>
+                <input type="number" id="price" name="price" required value="<%= values.price%>" class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+            </div>
+
+
+            <!-- Radio Buttons: Appetizer / Main Course / DESSERT -->
+            <div class="mb-4">
+                <label class="block">
+                    <input type="radio"name="category" id="category" checked="checked" value="appetizer" class="mr-2 checked:bg-red-500">
+                    Appetizer
+                </label>
+                <label class="block mt-2">
+                    <input type="radio" name="category" id="category" value="main-course" class="mr-2  checked:bg-blue-500">
+                    Main Course
+                </label>
+                <label class="block mt-2">
+                    <input type="radio" name="category" id="category" value="dessert" class="mr-2  checked:bg-green-400">
+                    Dessert
+                </label>
+            </div>
+
+            <!-- imageURL -->
+            <div class="mb-4">
+
+                <label for="mealImgURL" class="block text-sm font-medium leading-6 text-gray-900">Image</label>
+                <div class="mt-2">
+                    <input type="file" name="mealImgURL" id="mealImgURL"  required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+            </div>
+
+
+            <!-- Submit button -->
+            <button type="submit" class="w-full py-2 bg-orange-500 text-white rounded-md font-semibold hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-400">Submit</button>
+            
+
+        </form>
+        
+        
+    </div>
+    
+    <div style="position: absolute; top: 0; right: 0; bottom: 0; width: 50%; background-color: rgba(0, 0, 0, 0.5); z-index: 0;"></div>
+
+</div>

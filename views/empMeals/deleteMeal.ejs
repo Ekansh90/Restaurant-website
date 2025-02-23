@@ -1,0 +1,49 @@
+<div class="relative isolate px-6  lg:px-8 bg-cover bg-center md:bg-cover"  style="background-image: url(/images/hero_sections/success_hero.jpg); ">
+    <!-- Image on the left -->
+  
+
+    <!-- Sign-up form on the right -->
+    <div class="w-1/2 text-black p-6   ">
+        <h2 class="text-2xl font-semibold mb-4 text-center text-white mt-10">CONFIRM DELETE</h2>
+
+        <form action="/meals/delete/<%= _id %>" method="post"  class="border-2 px-6 py-10 rounded-3xl ml-30 mr-30 bg-white mb-10">
+
+            <!-- ERRORS THAT WE STORED IN ERRORS ARRAY-->
+            <div class="mt-2 mb-2">
+                <% if (typeof errors !== "undefined" && errors.length > 0) { %>
+                    <% errors.forEach(err => { %>
+                        <p style="color:red;"><%= err %></p>
+                    <% }) %>
+                <% } %>
+            </div>
+                
+            
+
+
+            <!-- Radio Buttons: Confirm / Cancel -->
+            <div class="mb-4">
+                <label class="block">
+                    <input type="radio"name="radioButton" id="radioButton" checked="checked" value="confirm" class="mr-2 checked:bg-red-500">
+                    Confirm
+                </label>
+                <label class="block mt-2">
+                    <input type="radio" name="radioButton" id="radioButton" checked="checked" value="cancel" class="mr-2  checked:bg-blue-500">
+                    Cancel
+                </label>
+            </div>
+
+            
+
+
+            <!-- Submit button -->
+            <button type="submit" class="w-full py-2 bg-orange-500 text-white rounded-md font-semibold hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-400">Submit</button>
+            
+
+        </form>
+        
+        
+    </div>
+    
+    <div style="position: absolute; top: 0; right: 0; bottom: 0; width: 50%; background-color: rgba(0, 0, 0, 0.5); z-index: 0;"></div>
+
+</div>

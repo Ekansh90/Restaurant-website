@@ -1,0 +1,79 @@
+<div class="bg-white mt-8" x-data="{ selectedCategory: '<%= selectedCategory %>' }">
+
+    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8">
+        <h2 class="text-7xl tracking-tight text-gray-900 text-center">Our Menus</h2>
+        <div class="items-center mt-6 mb-8">
+          <!-- Center the text inside the p element and limit its width -->
+          <p class="text-center w-1/2 mx-auto">Explore our thoughtfully curated menus, featuring a variety of appetizers, main courses, desserts, and drinks. From classic favorites to chef’s specials, we offer something for every palate. 
+              Choose from our à la carte options or indulge in our exclusive group dining menus.</p>
+        </div>
+
+        <form action="/menus" method="POST" id="categoryForm">
+            <div class="flex justify-center gap-10 mb-20">
+                <label class="cursor-pointer">
+                    <input type="radio" name="category" value="all" x-model="selectedCategory" @change="document.getElementById('categoryForm').submit();" class="peer hidden" <%= selectedCategory === 'all' ? 'checked' : '' %>>
+                    <div class="text-center rounded-full w-32 px-3.5 py-2.5 text-sm font-semibold shadow-xs peer-checked:bg-orange-700 peer-checked:text-white bg-white text-black border border-orange-700 hover:bg-orange-400 hover:text-white">
+                        All
+                    </div>
+                </label>
+                
+                <label class="cursor-pointer">
+                    <input type="radio" name="category" value="appetizer" x-model="selectedCategory" @change="document.getElementById('categoryForm').submit();" class="peer hidden" <%= selectedCategory === 'appetizer' ? 'checked' : '' %>>
+                    <div class="text-center rounded-full w-32 px-3.5 py-2.5 text-sm font-semibold shadow-xs peer-checked:bg-orange-700 peer-checked:text-white bg-white text-black border border-orange-700 hover:bg-orange-400 hover:text-white">
+                        Appetizers
+                    </div>
+                </label>
+    
+                <label class="cursor-pointer">
+                    <input type="radio" name="category" value="main-course" x-model="selectedCategory" @change="document.getElementById('categoryForm').submit();" class="peer hidden" <%= selectedCategory === 'main-course' ? 'checked' : '' %>>
+                    <div class="text-center rounded-full w-32 px-3.5 py-2.5 text-sm font-semibold shadow-xs peer-checked:bg-orange-700 peer-checked:text-white bg-white text-black border border-orange-700 hover:bg-orange-400 hover:text-white">
+                      Main Course
+                    </div>
+                </label>
+            
+                <label class="cursor-pointer">
+                    <input type="radio" name="category" value="dessert" x-model="selectedCategory" @change="document.getElementById('categoryForm').submit();" class="peer hidden" <%= selectedCategory === 'dessert' ? 'checked' : '' %>>
+                    <div class="text-center rounded-full w-32 px-3.5 py-2.5 text-sm font-semibold shadow-xs peer-checked:bg-orange-700 peer-checked:text-white bg-white text-black border border-orange-700 hover:bg-orange-400 hover:text-white">
+                      Desserts
+                    </div>
+                </label>
+            </div>
+        </form>
+
+
+        <!-- cards -->
+        <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 ">
+
+            <!--more items-->
+            <% if( menuItemsArray.length > 0 ) { %>
+
+                <% menuItemsArray.forEach( arrOfObjects  => { %>
+                    
+                    <% arrOfObjects.filteredArray.forEach( singleObject => { %>
+
+                        
+                        <div x-show="selectedCategory === 'all' || selectedCategory === '<%= singleObject.category %>'">
+                            <%- include("../partials/menu-itemCard",singleObject)%>
+                        </div>
+
+                    <% });%>
+
+                <% }); %>
+            
+
+
+
+            <% } else { %>
+                <p>Nothing To Show</p>
+            <% } %>
+                
+    
+
+            
+            
+
+            
+        </div>
+    </div>
+    
+</div>

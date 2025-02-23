@@ -1,12 +1,19 @@
 {
   "dependencies": {
+    "@sendgrid/mail": "^8.1.4",
     "@tailwindcss/cli": "^4.0.5",
     "@tailwindcss/vite": "^4.0.5",
     "alpinejs": "^3.14.8",
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "express-ejs-layouts": "^2.5.1",
-    "locomotive-scroll": "^4.1.4"
+    "express-fileupload": "^1.5.1",
+    "express-session": "^1.18.1",
+    "locomotive-scroll": "^4.1.4",
+    "mongodb": "^6.13.1",
+    "mongoose": "^8.10.1"
   },
   "scripts": {
     "tw:build": "tailwindcss build -i ./assets/css/tailwind.css -o ./assets/css/main.css",

@@ -1,0 +1,86 @@
+<!-- TODO : 1. FIX CSS FOR MOBILE -->
+
+
+<!--------------------------------------------------------------------------------------------->
+
+
+
+<!--------------------------------------------------------------------------------------------->
+
+<div class="relative isolate px-6  lg:px-8 bg-cover bg-center md:bg-cover"  style="background-image: url(/images/hero_sections/success_hero.jpg); ">
+    
+    
+
+    <!-- Log in form on the right -->
+    <div class="w-1/2 text-black p-6 ">
+        <h2 class="text-2xl font-semibold mb-10 text-center mt-10 text-white">LOG IN</h2>
+        <form action="/users/log-in" method="POST" class="border-2 px-6 py-15 rounded-3xl ml-30 mr-30 bg-white mb-10">
+            
+            <!-- ERRORS THAT WE STORED IN ERRORS ARRAY-->
+            <div class="mt-2">
+                <% if (typeof errors !== "undefined" && errors.length > 0) { %>
+                    <% errors.forEach(err => { %>
+                        <p style="color:red;"><%= err %></p>
+                    <% }) %>
+                <% } %>
+          </div>
+
+            <!-- Email -->
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium py-2">Email</label>
+                <input type="email" name="email"  id="email"  autocomplete="email" value="<%= values.email %>" required class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+                <% if (validationMessages.email) {%>
+                    <span class=" text-red-600"><%=validationMessages.email %></span>
+                <% } %>
+            </div>
+            
+            <!-- Password -->
+            <div class="mb-4">
+                <label for="passWord" class="block text-sm font-medium py-2">Password</label>
+                <input type="passWord"  name="passWord"  id="passWord" autocomplete="current-password" value="<%= values.passWord %>" required class="w-full p-2 bg-gray-100 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+                <% if (validationMessages.passWord) {%>
+                    <span class=" text-red-600"><%=validationMessages.passWord %></span>  
+                <% } %>
+            </div>
+            
+            <!-- Radio Buttons: Customer or Restaurant Employee -->
+            <div class="mb-4">
+                <label class="block">
+                    <input type="radio"name="radioButton" id="radioButton" value="customer" class="mr-2 checked:bg-red-500">
+                    Customer
+                </label>
+                <label class="block mt-2">
+                    <input type="radio" name="radioButton" id="radioButton" value="restaurant-employee" class="mr-2  checked:bg-blue-500">
+                    Restaurant Employee
+                </label>
+            </div>
+            
+            
+            <!-- Log In button -->
+            <button type="submit" class="w-full py-2 bg-orange-500 text-white rounded-md font-semibold hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-400">Log In</button>
+            
+            <!-- Already have an account -->
+            <p class="mt-4 text-center text-LG font-bold">
+                <a href="#" class="text-orange-500 hover:underline">Forgot Your Password ?</a>
+            </p>
+        </form>
+        
+        
+    </div>
+
+    <div style="position: absolute; top: 0; right: 0; bottom: 0; width: 50%; background-color: rgba(0, 0, 0, 0.5); z-index: 0;"></div>
+
+    
+</div>
+
+<!------------------------------------------>
+
+<!--------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------->
+
+
+    
+<!------------------------------------------>
+
+    
+    

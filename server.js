@@ -19,6 +19,48 @@ app.set('view engine','ejs');
 app.set("layout", "layouts/main"); // main ejs is the layout template to be used - contains navbar and about section
 app.use(expressLayouts);
 
+// set up body parser  -- parses info entered in form to organized form
+app.use(express.urlencoded({extended:true}));
+
+// set up dotenv so we can configure our send grid api key and put it in gitignore
+const dotenv = require("dotenv");
+dotenv.config({path:"./config/keys.env"}); 
+
+///////////////////////////////////////////////////////////////////// set up mongoose ///////////////////////////////////////////////////////////////////// 
+// require mongoose module - connect to mongoose at end [server start condition : successful connection to mongoose]
+const mongoose = require("mongoose");
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+// set up express-session
+const session = require("express-session");
+
+// set up session
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true
+}));
+
+// place this before routes
+// store the user found after searching(findOne({email})) into global variable using locals 
+app.use( (req, res, next) =>{
+
+    // initially undefined but after we redirect from login page a new request is made 
+    // (thats why we use redirect , render does not make new request) and store in global variables to access later
+    res.locals.user = req.session.user ;
+    res.locals.userType = req.session.userType ;
+
+    next() ;
+
+});
+
+// set up after body parser 
+const fileUpload = require("express-fileupload");
+app.use(fileUpload());
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////// Add your routes here
 // e.g. app.get() { ... }
@@ -28,27 +70,34 @@ app.get('/', (req,res) =>
         res.sendFile(path.join(__dirname, '/views/home.html'));
 });
 */
-app.get('/', (req,res) => {
-    res.render("home");
-});
 
+// importing general controller 
+const homeController = require('./controllers/homeController');
+app.use('/',homeController);
+
+// importing registration and login Controller 
+const userController = require('./controllers/usersController');
+app.use('/users/',userController);
+
+const loadDataController = require('./controllers/newLoadDataController');
+app.use('/load-data/',loadDataController);
+
+const empMealsController = require('./controllers/empMealsController');
+app.use('/meals/',empMealsController);
+/*
 app.get('/menus',(req,res) => {
     res.render("menus",{
         menuItemsArray : menuItemsUtil.getItemByCategory( menuItemsUtil.getAllItems())
     });
 });
+*/
 
 app.get('/group-dining',(req,res) => {
     res.render("group-dining");
 });
 
-app.get('/log-in', (req,res) => {
-    res.render("log-in") ;
-});
 
-app.get('/sign-up', (req,res) => {
-    res.render("sign-up") ;
-});
+
 
 app.get('/success', (req,res) => {
     res.render("success") ;
@@ -100,4 +149,15 @@ function onHttpStart() {
   
 // Listen on port 8080. The default port for http is 80, https is 443. We use 8080 here
 // because sometimes port 80 is in use by other applications on the machine
-app.listen(HTTP_PORT, onHttpStart);
+//app.listen(HTTP_PORT, onHttpStart);
+
+
+// only start listening if successfully connected to mongoDB
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING)
+    .then( () => {
+        app.listen(HTTP_PORT, onHttpStart);
+        console.log("Connection successfully made to Mongo DB");
+    })
+    .catch( err => {
+        console.log("Unable connect to MongoDB database : ERROR -> " + err);
+    })
