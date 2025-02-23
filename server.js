@@ -49,6 +49,7 @@ app.use( (req, res, next) =>{
     // (thats why we use redirect , render does not make new request) and store in global variables to access later
     res.locals.user = req.session.user ;
     res.locals.userType = req.session.userType ;
+    res.locals.cart = req.session.cart ;
 
     next() ;
 
@@ -112,10 +113,6 @@ app.get('/blocked', (req,res) => {
 
 
 
-// todo
-app.get('/addItem', (req,res) => {
-    res.render("addItem") ;
-});
 
 app.get('/reserve', (req,res) => {
     res.render("reservation") ;

@@ -4,21 +4,21 @@
         <h2 class="text-7xl tracking-tight text-gray-900 text-center">Our Menus</h2>
         <div class="items-center mt-6 mb-8">
           <!-- Center the text inside the p element and limit its width -->
-          <p class="text-center w-1/2 mx-auto">Explore our thoughtfully curated menus, featuring a variety of appetizers, main courses, desserts, and drinks. From classic favorites to chef’s specials, we offer something for every palate. 
+          <p class="px-4 md:text-center md:w-1/2 mx-auto">Explore our thoughtfully curated menus, featuring a variety of appetizers, main courses, desserts, and drinks. From classic favorites to chef’s specials, we offer something for every palate. 
               Choose from our à la carte options or indulge in our exclusive group dining menus.</p>
         </div>
 
-        <div class="flex justify-center gap-10 mb-20">
+        <div class="flex justify-between  md:justify-center md:gap-10 mb-20">
             <label class="cursor-pointer">
                 <input type="radio" name="category" value="all" x-model="selectedCategory" class="peer hidden">
-                <div class="text-center rounded-full w-32 px-3.5 py-2.5 text-sm font-semibold shadow-xs peer-checked:bg-orange-700 peer-checked:text-white bg-white text-black border border-orange-700 hover:bg-orange-400 hover:text-white">
+                <div class="text-center rounded-full w-16 md:w-32 px-3.5 py-2.5 text-sm font-semibold shadow-xs peer-checked:bg-orange-700 peer-checked:text-white bg-white text-black border border-orange-700 hover:bg-orange-400 hover:text-white">
                     All
                 </div>
             </label>
         
             <label class="cursor-pointer">
                 <input type="radio" name="category" value="appetizer" x-model="selectedCategory" class="peer hidden">
-                <div class="text-center rounded-full w-32 px-3.5 py-2.5 text-sm font-semibold shadow-xs peer-checked:bg-orange-700 peer-checked:text-white bg-white text-black border border-orange-700 hover:bg-orange-400 hover:text-white">
+                <div class="text-center rounded-full md:w-32 px-3.5 py-2.5 text-sm font-semibold shadow-xs peer-checked:bg-orange-700 peer-checked:text-white bg-white text-black border border-orange-700 hover:bg-orange-400 hover:text-white">
                     Appetizers
                 </div>
             </label>
@@ -32,7 +32,7 @@
         
             <label class="cursor-pointer">
                 <input type="radio" name="category" value="dessert" x-model="selectedCategory" class="peer hidden">
-                <div class="text-center rounded-full w-32 px-3.5 py-2.5 text-sm font-semibold shadow-xs peer-checked:bg-orange-700 peer-checked:text-white bg-white text-black border border-orange-700 hover:bg-orange-400 hover:text-white">
+                <div class="text-center rounded-full md:w-32 px-3.5 py-2.5 text-sm font-semibold shadow-xs peer-checked:bg-orange-700 peer-checked:text-white bg-white text-black border border-orange-700 hover:bg-orange-400 hover:text-white">
                     Desserts
                 </div>
             </label>
@@ -40,7 +40,7 @@
 
 
         <!-- cards -->
-        <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 ">
+        <div class="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 xl:gap-x-8 ">
 
             <!--more items-->
             <% if( menuItemsArray.length > 0 ) { %>

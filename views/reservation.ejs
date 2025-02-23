@@ -16,12 +16,12 @@
 </div>
 
 <!-- integrate google maps api, selecting a location pops up on the map-->
-<div class="relative isolate md:px-6 pt-14 lg:px-8 justify-center bg-cover bg-center md:bg-cover flex items-center  min-h-screen" style="background-image: url(/images/hero_sections/reserve_hero.jpg);">
-
+<div class="relative isolate md:px-6 pt-14 lg:px-8 justify-center bg-cover bg-center md:bg-cover flex items-center min-h-screen" style="background-image: url(/images/hero_sections/reserve_hero.jpg);">
+  
     <!-- div for form -->
-    <form class="w-1/2 bg-white rounded-4xl shadow-lg p-8 mb-10 py-15">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-10  ">
-
+    <form class="w-full sm:w-4/5 md:w-1/2 bg-white rounded-4xl shadow-lg p-8 mb-10 py-15 mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-10">
+  
             <!-- Nature of Event -->
             <div class="md:col-span-2">
                 <label class="block text-sm font-medium">Location <span class="text-red-500">*</span></label>
@@ -30,50 +30,49 @@
                     <option value="charity">12 Emberly Drive</option>
                     <option value="religious">65 Boulevard Street</option>
                     <option value="work_event">Strong Avenue West</option>
-
                 </select>
             </div>
-
+  
             <!-- Event Date -->
             <div>
                 <label class="block text-sm font-medium">Event Date <span class="text-red-500">*</span></label>
-                <input type="date" required class="w-full mt-1 p-2 px-3   border border-gray-400  rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+                <input type="date" required class="w-full mt-1 p-2 px-3 border border-gray-400 rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
             </div>
         
             <!-- Event Time -->
             <div>
                 <label class="block text-sm font-medium">Event Time <span class="text-red-500">*</span></label>
-                <input type="time" required class="w-full mt-1 p-2 px-3  border border-gray-400  rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+                <input type="time" required class="w-full mt-1 p-2 px-3 border border-gray-400 rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
             </div>
-
+  
             <!-- Full Name -->
             <div>
                 <label class="block text-sm font-medium">Full Name <span class="text-red-500">*</span></label>
-                <input type="text" required class="w-full mt-1 p-2   border border-gray-400  rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+                <input type="text" required class="w-full mt-1 p-2 border border-gray-400 rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
             </div>
             
             <!-- Number of Guests -->
             <div class="block text-sm font-medium">
                 <label class="block text-sm font-medium">Number of Guests <span class="text-red-500">*</span></label>
-                <input type="number" required min="1" class="w-full mt-1 p-2   border border-gray-400  rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+                <input type="number" required min="1" class="w-full mt-1 p-2 border border-gray-400 rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
             </div>
             
             <!-- Email -->
             <div>
                 <label class="block text-sm font-medium">Email <span class="text-red-500">*</span></label>
-                <input type="email" required class="w-full mt-1 p-2   border border-gray-400  rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+                <input type="email" required class="w-full mt-1 p-2 border border-gray-400 rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
             </div>
-
+  
             <!-- Phone -->
             <div>
                 <label class="block text-sm font-medium">Phone <span class="text-red-500">*</span></label>
-                <input type="tel" required class="w-full mt-1 p-2  border border-gray-400  rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
+                <input type="tel" required class="w-full mt-1 p-2 border border-gray-400 rounded-3xl text-black focus:outline-none focus:ring-2 focus:ring-orange-400">
             </div>
         </div>
-
+  
         <!-- Submit Button -->
         <div class="mt-10 text-center">
-            <button type="submit" class="md:col-span-2 bg-orange-500 hover:bg-orange-600 text-white py-2 px-6  rounded-3xl text-lg font-semibold shadow-lg transition duration-200">
+            <button type="submit" class="md:col-span-2 bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded-3xl text-lg font-semibold shadow-lg transition duration-200">
                 Submit Booking Request
             </button>
         </div>

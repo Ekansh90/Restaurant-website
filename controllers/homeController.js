@@ -16,7 +16,7 @@ router.get('/menus', (req, res) => {
     .then(mealObj => {
         let localAllMealsArray = mealObj.map(meal => meal.toObject());
 
-        res.render("general/mealMenus", {
+        res.render("general/mealMenus2", {
             menuItemsArray: menuUtil.getItemByCategory(localAllMealsArray),
             selectedCategory: "all" // Default to "all"
         });
@@ -27,6 +27,9 @@ router.get('/menus', (req, res) => {
 });
 
 
+/* 
+// mealMenus2 logic is faster as we only need access via GET , and no value back via POST
+// post slows down the switching using mealMenus.ejs with router.get as well if still want to use it
 router.post('/menus', (req, res) => {
     
     let selectedCategory = req.body.category || "all"; // Use category from form
@@ -44,4 +47,6 @@ router.post('/menus', (req, res) => {
         console.log("Error: " + err);
     });
 });
+
+*/
 module.exports = router ;
