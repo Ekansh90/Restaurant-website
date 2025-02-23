@@ -12,9 +12,11 @@ const menuItemsUtil = require('./modules/menu-util');
 ////////////////////////////////////// app.use()
 // make assets folder local
 app.use(express.static(path.join(__dirname, '/assets/')));
+app.use(express.static(__dirname + '/assets')); //vercel
 
 
 // SET UP EJS
+app.set('views', __dirname + '/views'); // vercel
 app.set('view engine','ejs');
 app.set("layout", "layouts/main"); // main ejs is the layout template to be used - contains navbar and about section
 app.use(expressLayouts);
@@ -60,13 +62,6 @@ const fileUpload = require("express-fileupload");
 app.use(fileUpload());
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// vercel : If you are using a template engine in your application (ie: EJS), then you will need to add the line:before your route definitions.
-app.set('views', __dirname + '/views');
-
-// if you are using the "express.static()" middleware to define a "public" folder, you must also include the "__dirname" in your path
-app.use(express.static(__dirname + '/public'));
-
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -81,20 +76,20 @@ app.get('/', (req,res) =>
 
 // importing general controller 
 const homeController = require('./controllers/homeController');
-app.use('/api/',homeController);
+app.use('/',homeController);
 
 // importing registration and login Controller 
 const userController = require('./controllers/usersController');
-app.use('/api/users/',userController);
+app.use('/users/',userController);
 
 const loadDataController = require('./controllers/newLoadDataController');
-app.use('/api/load-data/',loadDataController);
+app.use('/load-data/',loadDataController);
 
 const empMealsController = require('./controllers/empMealsController');
-app.use('/api/meals/',empMealsController);
+app.use('/meals/',empMealsController);
 
 const userCartController = require('./controllers/userCartController');
-app.use('/api/cart/',userCartController) ;
+app.use('/cart/',userCartController) ;
 /*
 app.get('/menus',(req,res) => {
     res.render("menus",{
@@ -106,11 +101,11 @@ app.get('/menus',(req,res) => {
 
 
 
-app.get('/api/success', (req,res) => {
+app.get('/success', (req,res) => {
     res.render("success") ;
 });
 
-app.get('/api/blocked', (req,res) => {
+app.get('/blocked', (req,res) => {
     res.render("blocked") ;
 });
 
@@ -161,5 +156,5 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING)
         console.log("Unable connect to MongoDB database : ERROR -> " + err);
     })
 
-
-    module.exports = app;
+// Export for Vercel Deployment
+module.exports = app;
