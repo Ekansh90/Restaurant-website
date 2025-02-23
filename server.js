@@ -67,7 +67,7 @@ app.set('views', __dirname + '/views');
 // if you are using the "express.static()" middleware to define a "public" folder, you must also include the "__dirname" in your path
 app.use(express.static(__dirname + '/public'));
 
-app.use("/api", router); // Prefix all routes with `/api`
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////// Add your routes here
@@ -81,20 +81,20 @@ app.get('/', (req,res) =>
 
 // importing general controller 
 const homeController = require('./controllers/homeController');
-app.use('/',homeController);
+app.use('/api/',homeController);
 
 // importing registration and login Controller 
 const userController = require('./controllers/usersController');
-app.use('/users/',userController);
+app.use('/api/users/',userController);
 
 const loadDataController = require('./controllers/newLoadDataController');
-app.use('/load-data/',loadDataController);
+app.use('/api/load-data/',loadDataController);
 
 const empMealsController = require('./controllers/empMealsController');
-app.use('/meals/',empMealsController);
+app.use('/api/meals/',empMealsController);
 
 const userCartController = require('./controllers/userCartController');
-app.use('/cart/',userCartController) ;
+app.use('/api/cart/',userCartController) ;
 /*
 app.get('/menus',(req,res) => {
     res.render("menus",{
@@ -106,11 +106,11 @@ app.get('/menus',(req,res) => {
 
 
 
-app.get('/success', (req,res) => {
+app.get('/api/success', (req,res) => {
     res.render("success") ;
 });
 
-app.get('/blocked', (req,res) => {
+app.get('/api/blocked', (req,res) => {
     res.render("blocked") ;
 });
 
