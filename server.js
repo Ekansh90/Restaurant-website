@@ -60,7 +60,15 @@ const fileUpload = require("express-fileupload");
 app.use(fileUpload());
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// vercel : If you are using a template engine in your application (ie: EJS), then you will need to add the line:before your route definitions.
+app.set('views', __dirname + '/views');
 
+// if you are using the "express.static()" middleware to define a "public" folder, you must also include the "__dirname" in your path
+app.use(express.static(__dirname + '/public'));
+
+require('pg'); // explicitly require the "pg" module
+const Sequelize = require('sequelize');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////// Add your routes here
