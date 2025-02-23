@@ -19,7 +19,8 @@
     "tw:build": "tailwindcss build -i ./assets/css/tailwind.css -o ./assets/css/main.css",
     "tw:setup": "npx @tailwindcss/cli -i ./assets/css/tailwind.css -o ./assets/css/main.css --watch",
     "tw_ts:start": "npx tailwindcss --config tailwind.config.ts -i ./assets/css/tailwind.css -o ./assets/css/main.css --watch  ",
-    "start": "node server.js"
+    "start": "node server.js" ,
+    "vercel-build": "node server.js"
   },
   "name": "myserver",
   "version": "1.0.0",

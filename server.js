@@ -67,10 +67,6 @@ app.set('views', __dirname + '/views');
 // if you are using the "express.static()" middleware to define a "public" folder, you must also include the "__dirname" in your path
 app.use(express.static(__dirname + '/public'));
 
-require('pg'); // explicitly require the "pg" module
-const Sequelize = require('sequelize');
-const serverless = require("serverless-http"); // Required for Vercel
-
 app.use("/api", router); // Prefix all routes with `/api`
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -167,4 +163,3 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING)
 
 
     module.exports = app;
-    module.exports.handler = serverless(app); // Required for Vercel
