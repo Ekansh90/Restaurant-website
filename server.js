@@ -156,5 +156,3 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING)
         console.log("Unable connect to MongoDB database : ERROR -> " + err);
     })
 
-// Export for Vercel Deployment
-module.exports = app;
