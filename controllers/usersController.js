@@ -422,6 +422,7 @@ router.get("/logout" , (req,res)=>{
                     console.error("Error removing session from MongoDB:", err);
                 }
             });
+            res.clearCookie("connect.sid"); // Ensure session cookie is cleared
         }
     
         res.redirect("/users/log-in");

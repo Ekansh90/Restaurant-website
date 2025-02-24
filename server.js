@@ -40,22 +40,26 @@ const MongoStore = require("connect-mongo");
 const session = require("express-session");
 
 // set up session
+// vercel is serverless - does not persist session data [ need to store session in mongodb]
+
 app.use(session({
-    secret: process.env.SESSION_SECRET,  
+    secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
-    
-    // vercel is serverless - does not persist session data [ need to store session in mongodb]
+    saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_CONNECTION_STRING,  // Use your MongoDB URL
-        collectionName: 'sessions'
+        mongoUrl: process.env.MONGODB_CONNECTION_STRING,
+        collectionName: "sessions",
+        ttl: 24 * 60 * 60
     }),
     cookie: {
-        secure: process.env.NODE_ENV === 'production',  // Secure cookies in production
+        secure: false,  // Important for local development
         httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 24 // 1 day
-    }
+        sameSite: "lax",
+        maxAge: 1000 * 60 * 60 * 24
+    },
+    name: "session_id" // Custom session cookie name
 }));
+
 
 
 // place this before routes
@@ -67,6 +71,12 @@ app.use( (req, res, next) =>{
     res.locals.user = req.session.user  ;
     res.locals.userType = req.session.userType ;
     res.locals.cart = req.session.cart ;
+
+    console.log("Session ID:", req.sessionID);
+    console.log("Session Data:", req.session);
+
+    console.log("user:",res.locals.user);
+    console.log("cart:",res.locals.cart);
 
     next() ;
 
@@ -93,12 +103,17 @@ app.get('/', (req,res) =>
 */
 
 // importing general controller 
+
+
 const homeController = require('./controllers/homeController');
 app.use('/',homeController);
 
+
 // importing registration and login Controller 
+
 const userController = require('./controllers/usersController');
 app.use('/users/',userController);
+
 
 const loadDataController = require('./controllers/newLoadDataController');
 app.use('/load-data/',loadDataController);
