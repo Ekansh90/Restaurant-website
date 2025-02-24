@@ -98,9 +98,14 @@ router.post('/add',(req,res) =>
                                     .then( () => {
                                         message = "mealkit addition success" ;
                                         console.log(message);
+                                        res.render("empMeals/addSuccess");
+                                        
+                                        /*
                                         res.render("general/empSuccess",{
                                             message ,
                                         }) ;
+                                         */
+
                                         //res.redirect("/");
                                     }) 
                                     .catch( err =>{
@@ -183,17 +188,23 @@ router.post("/delete/:id",(req,res)=>{
                 .then( () => {
                     console.log("deleted one meal for the id: " + mealId);
                     message = "deleted one meal successfully" ;
+                    res.render("empMeals/deleteSuccess");
+                    /*
                     res.render("general/empSuccess",{
                         message ,
                     }) ;
+                     */
                 })
                 .catch( err => {
                     
                     console.log("deleted error : " + err);
                     message = "attempt to delete meal  : unsuccessful" ;
+                    res.render("empMeals/deleteFail");
+                    /*
                     res.render("general/empSuccess",{
                         message ,
                     }) ;
+                     */
                 });
         }
 
@@ -203,9 +214,13 @@ router.post("/delete/:id",(req,res)=>{
     {
         console.log("delete cancelled");
         message = "Request To delete cancelled" ;
+        res.render("empMeals/deleteCancel");
+        /*
         res.render("general/empSuccess",{
             message ,
         }) ;
+         */
+
 
     }
 
@@ -308,9 +323,12 @@ router.post("/update/:id",(req,res)=>
                                 .then( () =>{
                                     console.log("user update success");
                                     message = "user update success" ;
+                                    res.render("empMeals/updateSuccess");
+                                    /*
                                     res.render("general/empSuccess",{
                                         message ,
                                     }) ;
+                                     */
                                     //res.redirect("/");
                     
                                 })
@@ -320,7 +338,7 @@ router.post("/update/:id",(req,res)=>
                                 })
                         })
                         .catch( err => {
-                            console.log("something error happend : " , err);
+                            console.log("something went wrong : " , err);
                         }) 
             
         }
@@ -336,27 +354,7 @@ router.post("/update/:id",(req,res)=>
             });
         }
 
-    
-
-    
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

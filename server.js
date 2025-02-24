@@ -31,6 +31,9 @@ dotenv.config({path:"./config/keys.env"});
 ///////////////////////////////////////////////////////////////////// set up mongoose ///////////////////////////////////////////////////////////////////// 
 // require mongoose module - connect to mongoose at end [server start condition : successful connection to mongoose]
 const mongoose = require("mongoose");
+const MongoStore = require("connect-mongo");
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 // set up express-session
@@ -38,10 +41,22 @@ const session = require("express-session");
 
 // set up session
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET,  
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    
+    // vercel is serverless - does not persist session data [ need to store session in mongodb]
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGODB_CONNECTION_STRING,  // Use your MongoDB URL
+        collectionName: 'sessions'
+    }),
+    cookie: {
+        secure: process.env.NODE_ENV === 'production',  // Secure cookies in production
+        httpOnly: true,
+        maxAge: 1000 * 60 * 60 * 24 // 1 day
+    }
 }));
+
 
 // place this before routes
 // store the user found after searching(findOne({email})) into global variable using locals 
@@ -49,13 +64,16 @@ app.use( (req, res, next) =>{
 
     // initially undefined but after we redirect from login page a new request is made 
     // (thats why we use redirect , render does not make new request) and store in global variables to access later
-    res.locals.user = req.session.user ;
+    res.locals.user = req.session.user  ;
     res.locals.userType = req.session.userType ;
     res.locals.cart = req.session.cart ;
 
     next() ;
 
 });
+
+
+
 
 // set up after body parser 
 const fileUpload = require("express-fileupload");
@@ -156,3 +174,5 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING)
         console.log("Unable connect to MongoDB database : ERROR -> " + err);
     })
 
+// Export for Vercel Deployment
+module.exports = app;

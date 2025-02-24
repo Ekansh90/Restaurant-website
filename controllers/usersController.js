@@ -398,11 +398,36 @@ router.post('/log-in',(req,res) => {
 ///////////////////////////////////////////////////////////
 // logout
 
+/*
 router.get("/logout" , (req,res)=>{
 
     req.session.destroy() ;
     //res.redirect('/formSuccess');   
     res.redirect("/users/log-in");
 });
+*/
+
+router.get("/logout" , (req,res)=>{
+
+    req.session.destroy((err) => {
+        if (err) {
+            console.error("Error destroying session:", err);
+            return res.status(500).send("Error logging out");
+        }
+    
+        // Remove session from MongoDB
+        if (req.sessionID && req.sessionStore) {
+            req.sessionStore.destroy(req.sessionID, (err) => {
+                if (err) {
+                    console.error("Error removing session from MongoDB:", err);
+                }
+            });
+        }
+    
+        res.redirect("/users/log-in");
+    });
+});
+
+
 ///////////////////////////////////////////////////////////
 module.exports = router; // can be included in server.js

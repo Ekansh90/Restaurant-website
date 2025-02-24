@@ -5,6 +5,7 @@
     "@tailwindcss/vite": "^4.0.5",
     "alpinejs": "^3.14.8",
     "bcryptjs": "^3.0.2",
+    "connect-mongo": "^5.1.0",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",

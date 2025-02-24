@@ -22,5 +22,5 @@ app.set('views', __dirname + '/views');
 // if using a static folder(assets) :
 app.use(express.static(__dirname + '/assets')); //vercel
 
-3. // Export server.js for Vercel Deployment
+3. // Export server.js for Vercel Deployment - checked again not needed 
 module.exports = app;
