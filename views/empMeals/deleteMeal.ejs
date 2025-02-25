@@ -3,10 +3,15 @@
   
 
     <!-- Sign-up form on the right -->
-    <div class="w-1/2 text-black p-6   ">
-        <h2 class="text-2xl font-semibold mb-4 text-center text-white mt-10">CONFIRM DELETE</h2>
+    <div class="md:w-1/2 text-black p-6   ">
+        <h2 class="sm:block md:hidden text-5xl font-bold mb-4 text-center  text-white mt-10">CON
+            <span class="text-orange-500">
+                FIRM 
+            </span>
+        
+        DELETE</h2>
 
-        <form action="/meals/delete/<%= _id %>" method="post"  class="border-2 px-6 py-10 rounded-3xl ml-30 mr-30 bg-white mb-10">
+        <form action="/meals/delete/<%= _id %>" method="post"  class="border-2 px-6 py-10 rounded-3xl md:ml-10 md:mr-10 md:mt-30 md:mb-30 bg-white mb-10">
 
             <!-- ERRORS THAT WE STORED IN ERRORS ARRAY-->
             <div class="mt-2 mb-2">
@@ -44,6 +49,7 @@
         
     </div>
     
-    <div style="position: absolute; top: 0; right: 0; bottom: 0; width: 50%; background-color: rgba(0, 0, 0, 0.5); z-index: 0;"></div>
-
+    <div class="hidden md:flex absolute top-0 right-0 bottom-0 w-1/2 bg-black/50 z-0 items-center justify-center">
+        <h2 class="text-white text-7xl font-bold text-center">CONFIRM DELETE</h2>
+    </div>
 </div>

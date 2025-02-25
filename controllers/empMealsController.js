@@ -80,7 +80,8 @@ router.post('/add',(req,res) =>
                     // create a unique name for the picture 
                     // store in static folder
                     const mealPic = req.files.mealImgURL ; // string 
-                    const uniqueName = `mealPic-${req.body.category}-${req.body.title}${path.parse(mealPic.name).ext}`;
+                    const uniqueName = `mealPic-${savedMeal._id}${path.parse(mealPic.name).ext}`;
+
                     
                     console.log("imageURL : "+ uniqueName) ;
     
@@ -98,13 +99,9 @@ router.post('/add',(req,res) =>
                                     .then( () => {
                                         message = "mealkit addition success" ;
                                         console.log(message);
-                                        res.render("empMeals/addSuccess");
-                                        
-                                        /*
-                                        res.render("general/empSuccess",{
+                                        res.render("empMeals/mealOperationSuccess",{
                                             message ,
                                         }) ;
-                                         */
 
                                         //res.redirect("/");
                                     }) 
@@ -188,23 +185,20 @@ router.post("/delete/:id",(req,res)=>{
                 .then( () => {
                     console.log("deleted one meal for the id: " + mealId);
                     message = "deleted one meal successfully" ;
-                    res.render("empMeals/deleteSuccess");
-                    /*
-                    res.render("general/empSuccess",{
+                    res.render("empMeals/mealOperationSuccess",{
                         message ,
                     }) ;
-                     */
+
                 })
                 .catch( err => {
                     
                     console.log("deleted error : " + err);
                     message = "attempt to delete meal  : unsuccessful" ;
-                    res.render("empMeals/deleteFail");
-                    /*
-                    res.render("general/empSuccess",{
+                    res.render("empMeals/mealOperationSuccess",{
                         message ,
                     }) ;
-                     */
+
+                    
                 });
         }
 
@@ -214,12 +208,10 @@ router.post("/delete/:id",(req,res)=>{
     {
         console.log("delete cancelled");
         message = "Request To delete cancelled" ;
-        res.render("empMeals/deleteCancel");
-        /*
-        res.render("general/empSuccess",{
+        res.render("empMeals/mealOperationSuccess",{
             message ,
         }) ;
-         */
+
 
 
     }
@@ -303,7 +295,9 @@ router.post("/update/:id",(req,res)=>
                     const mealPic = req.files.mealImgURL ; // string 
                     // TODO : try accessing it with req.body and then save it to database
     
-                    const uniqueName = `mealPic-${req.body.category}-${req.body.title}${path.parse(mealPic.name).ext}`;
+
+                    // ** imageURL being saved should never have space between 
+                    const uniqueName = `mealPic-${savedMeal._id}${path.parse(mealPic.name).ext}`;
                     console.log("imageURL : "+ uniqueName) ;
     
                     // copy the image to local folder
@@ -323,12 +317,10 @@ router.post("/update/:id",(req,res)=>
                                 .then( () =>{
                                     console.log("user update success");
                                     message = "user update success" ;
-                                    res.render("empMeals/updateSuccess");
-                                    /*
-                                    res.render("general/empSuccess",{
+                                    res.render("empMeals/mealOperationSuccess",{
                                         message ,
                                     }) ;
-                                     */
+
                                     //res.redirect("/");
                     
                                 })
