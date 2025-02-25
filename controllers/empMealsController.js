@@ -297,7 +297,7 @@ router.post("/update/:id",(req,res)=>
     
 
                     // ** imageURL being saved should never have space between 
-                    const uniqueName = `mealPic-${savedMeal._id}${path.parse(mealPic.name).ext}`;
+                    const uniqueName = `mealPic-${mealId}${path.parse(mealPic.name).ext}`;
                     console.log("imageURL : "+ uniqueName) ;
     
                     // copy the image to local folder
