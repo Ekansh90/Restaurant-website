@@ -46,18 +46,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_CONNECTION_STRING,
-        collectionName: "sessions",
-        ttl: 24 * 60 * 60
-    }),
-    cookie: {
-        secure: false,  // Important for local development
-        httpOnly: true,
-        sameSite: "lax",
-        maxAge: 1000 * 60 * 60 * 24
-    },
-    name: "session_id" // Custom session cookie name
+
 }));
 
 
@@ -71,13 +60,6 @@ app.use( (req, res, next) =>{
     res.locals.user = req.session.user  ;
     res.locals.userType = req.session.userType ;
     res.locals.cart = req.session.cart ;
-
-    console.log("Session ID:", req.sessionID);
-    console.log("Session Data:", req.session);
-
-    console.log("user:",res.locals.user);
-    console.log("cart:",res.locals.cart);
-
     next() ;
 
 });
